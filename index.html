@@ -1,16 +1,18 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Xi Gong's page</title>
     <link href="index.css" rel="stylesheet" type="text/css">
 </head>
     
 <body>
     <div id="wrapper">
-        <div id="header> 
+        <div id="header"> 
             <div class="top_banner">
-                <h1 style="text-align:center">Xi Gong's Personal Page.</h1>         
+                <h1 style="text-align:center">Xi Gong's Personal Page.</h1>
                 <br>
             </div> 
         </div>       
@@ -18,29 +20,38 @@
 
     <div class="navigation">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="papers.html">Papers</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </div>
 
     <div class="page_content">
         <div class="intro">
-            <p>I am a fourth-year PhD student in Statistics at Michigan State University. I am interested in online experiments and causal inference. </p> 
-            <br> 
+            <div class="intro-text">
+            <p>I am a fourth-year PhD student in Statistics at Michigan State University. I am interested in online experiments and causal inference. </p>
+            <br>
             <p style="font-size: 13px;">Template adapted from Ethan Lake.</p>
+
+            </div>
             
         </div>
     </div>
 
     <div class="links">
         <hr>
-        <h2>Notes</h2>
+        <details class="diary-archive">
+        <summary>Notes (archive)</summary>
         <ul>
             <li><a href="https://drive.google.com/file/d/1-ST6JN7VBzjo3ZPkuY43yeiUSG0Hg1FU/view?usp=drive_link">Semiparametric theory: Part I</a></li>  
             <li><a href="https://drive.google.com/file/d/1ZLn8FkwcQMYmMJxkOAz5kxvqR3CRe7LE/view?usp=drive_link">Semiparametric theory: Part II</a></li> 
             <li><a href="https://drive.google.com/file/d/1r6JJ3fIpjiIZcN5LyWa6bapqUBA2-ad_/view?usp=drive_link">Laplacian on fractal</a></li>   
         </ul>
+        </details>
 
-        <h2>Diaries</h2>
+        <details class="diary-archive">
+        <summary>Diaries (archive)</summary>
         <ul><li><a href="https://drive.google.com/file/d/1zPF-VXp1eamMHP326zgVhfxASXf9DSgA/view?usp=drive_link">NPMLE for interval censored data</a></li></ul>
         <ul><li><a href="https://drive.google.com/file/d/13Cs7-Z_6yP66yUnc0tL-ZPjPETACxQtm/view?usp=sharing"> PAC guarantee vs marginal guarantee for prediction intervals </a></li></ul>
         <ul><li><a href="https://drive.google.com/file/d/1nffkqvfAiILCWvyyQbXtOU-KO2qwg4O-/view">Edgeworth expansion for iid sum</a></li></ul> 
@@ -53,6 +64,7 @@
         <ul><li><a href="https://drive.google.com/file/d/1PU6q8cbowI_pKr7HskR-SZZHVeltHlIy/view?usp=sharing"> An extreme case of Sobolev embedding </a> </li></ul>
         <ul><li><a href="https://drive.google.com/file/d/1o2IZT4CmZwFljEWGEX7lW3SfBlFHRN0L/view?usp=sharing">Semigroup and generator for Brownian motion</a></li></ul>
 
+        </details>
     </div>
 
     
