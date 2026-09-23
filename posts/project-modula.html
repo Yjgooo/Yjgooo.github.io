@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Project Modula: Can Music Preferences Improve Numerical Music Ratings? — Xi Gong</title>
-    <link href="../index.css" rel="stylesheet" type="text/css">
+    <link href="../index.css?v=cb9dbc0abd29" rel="stylesheet" type="text/css">
     <script src="../mathjax-config.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js"></script>
 </head>
@@ -67,7 +67,7 @@ transfer result—with a strong baseline</h2>
 <p>That initially looked encouraging. But an independent recomputation
 revealed a surprisingly competitive baseline: <strong>always choose the
 longer clip</strong>.</p>
-<table>
+<div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
 <thead>
 <tr class="header">
 <th>Evaluated comparisons</th>
@@ -92,7 +92,7 @@ longer clip</strong>.</p>
 <td style="text-align: right;">74.4%</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>On the subsets where the evaluator was most confident, its accuracy
 increased, and its advantage over the duration baseline widened.</p>
 <p>These results suggest some transfer between the datasets. They also
@@ -145,7 +145,7 @@ might become more useful when numerical labels were scarce.</p>
 labels.</p>
 <p>The table reports mean squared error; <strong>lower is
 better</strong>.</p>
-<table>
+<div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 21%" />
@@ -192,7 +192,7 @@ better</strong>.</p>
 <td style="text-align: right;">0.368251</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The augmented model stayed extremely close to the scores-only
 baseline. Its numerical improvements were tiny, while basic CLR
 performed substantially worse. The direction-aware variant showed no

@@ -495,8 +495,13 @@ IMG.displayed {
 .blog-post pre { overflow-x: auto; padding: 16px; background: #f4f4f4; font-size: 15px; }
 .blog-post code { font-family: monospace; }
 .blog-post blockquote { border-left: 3px solid #ccc; padding-left: 18px; }
-.blog-post table { display: block; overflow-x: auto; border-collapse: collapse; margin-bottom: 20px; }
-.blog-post th, .blog-post td { border: 1px solid #ccc; padding: 8px 12px; }
+.blog-post .table-scroll { max-width: 100%; overflow-x: auto; margin: 28px 0; border: 1px solid #e3e3e3; border-radius: 4px; }
+.blog-post .table-scroll:focus-visible { outline: 2px solid #355e80; outline-offset: 4px; }
+.blog-post table { width: 100%; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; line-height: 1.5; overflow-wrap: normal; font-variant-numeric: tabular-nums; }
+.blog-post th, .blog-post td { padding: 12px 16px; border-bottom: 1px solid #e3e3e3; white-space: nowrap; }
+.blog-post th { background: #f5f6f7; color: #444; font-weight: 600; }
+.blog-post tbody tr:last-child td { border-bottom: 0; }
+.blog-post tbody tr:nth-child(even) { background: #fafafa; }
 .blog-post .math.display { display: block; overflow-x: auto; }
 .post-date { color: #666; font-size: 16px; margin-bottom: 16px; }
 .post-preview { border-bottom: 1px solid #ddd; padding-bottom: 24px; margin-bottom: 24px; }
