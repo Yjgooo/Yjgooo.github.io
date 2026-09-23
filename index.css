@@ -543,3 +543,18 @@ IMG.displayed {
  .blog-heading h1 { font-size: 38px; }
  .writing-page .blog-post h1 { font-size: 34px; }
 }
+
+/* Shared content styling for Home, Papers, and About. */
+.page-intro { font-size: 20px; line-height: 1.75; margin: 0; }
+.page-empty { font-size: 19px; line-height: 1.65; color: #666; }
+.about-intro { display: flex; align-items: flex-start; gap: 36px; }
+.about-intro .page-intro { flex: 1; min-width: 0; }
+.home-archives { margin-top: 42px; border-top: 1px solid #e3e3e3; }
+.home-archives .diary-archive { margin: 0; padding: 22px 0; border-bottom: 1px solid #e3e3e3; }
+.home-archives summary { font-size: 18px; color: #555; }
+.home-archives li { font-size: 18px; line-height: 1.6; }
+.page-credit { margin-top: 32px; font-size: 12px; line-height: 1.5; color: #777; }
+@media (max-width: 600px) {
+ .about-intro { flex-direction: column; gap: 28px; }
+ .about-intro .profile-photo { width: 180px; }
+}

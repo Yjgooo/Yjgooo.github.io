@@ -1,46 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Xi Gong's page</title>
+    <title>Home — Xi Gong</title>
     <link href="index.css" rel="stylesheet" type="text/css">
 </head>
-    
-<body>
+<body class="writing-page">
     <div id="wrapper">
-        <div id="header"> 
+        <div id="header">
             <div class="top_banner">
-                <h1 style="text-align:center">Xi Gong's Personal Page.</h1>
-                <br>
-            </div> 
-        </div>       
+                <a class="site-name" href="index.html">Xi Gong</a>
+            </div>
+        </div>
     </div>
-
-    <div class="navigation">
+    <nav class="navigation" aria-label="Main navigation">
         <ul>
             <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="papers.html">Papers</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-    </div>
-
-    <div class="page_content">
-        <div class="intro">
-            <div class="intro-text">
-            <p>I am a fourth-year PhD student in Statistics at Michigan State University. I am interested in online experiments and causal inference. </p>
-            <br>
-            <p style="font-size: 13px;">Template adapted from Ethan Lake.</p>
-
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="links">
-        <hr>
+    </nav>
+    <main class="blog-content">
+        <p class="page-intro">I am a fifth-year PhD student in Statistics at Michigan State University. I am interested in online experiments and causal inference.</p>
+        <section class="home-archives" aria-label="Archived writing">
         <details class="diary-archive">
         <summary>Notes (archive)</summary>
         <ul>
@@ -65,9 +49,8 @@
         <ul><li><a href="https://drive.google.com/file/d/1o2IZT4CmZwFljEWGEX7lW3SfBlFHRN0L/view?usp=sharing">Semigroup and generator for Brownian motion</a></li></ul>
 
         </details>
-    </div>
-
-    
-    
+        </section>
+        <footer class="page-credit">Template adapted from Ethan Lake.</footer>
+    </main>
 </body>
 </html>
