@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Papers — Xi Gong</title>
-    <link href="index.css" rel="stylesheet" type="text/css">
+    <title>Research — Xi Gong</title>
+    <link href="index.css?v=6057a410bcf8" rel="stylesheet" type="text/css">
 </head>
 <body class="writing-page">
     <div id="wrapper">
@@ -18,13 +18,33 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="papers.html" aria-current="page">Papers</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="papers.html" aria-current="page">Research</a></li>
         </ul>
     </nav>
     <main class="blog-content">
-        <header class="blog-heading"><h1>Papers</h1></header>
-        <p class="page-empty">Paper listings coming soon.</p>
+        <section class="paper-list" aria-label="Research projects">
+            <article class="paper-entry">
+                <h2>Partial Identification of Average Treatment Effect Under Covariate Contamination</h2>
+                <p class="paper-status">Planned submission to CLeaR 2027</p>
+                <p class="paper-description">When some of the information in a study is inaccurate, how much can we still learn about whether a treatment works? This work uses a separate source of reliable data to establish a range of plausible effects, making the uncertainty in the answer explicit.</p>
+            </article>
+            <article class="paper-entry">
+                <h2>Exposure-Aware A/B Testing for Repeated User Interactions</h2>
+                <p class="paper-status">Planned submission to The Web Conference 2027</p>
+                <p class="paper-description">A feature may affect someone differently the first time they use it than the tenth. This project explores how A/B tests can capture those changes, so a single average does not hide how people respond over time.</p>
+            </article>
+            <article class="paper-entry">
+                <h2>Minimally Important Change Estimation Through Interval Censoring</h2>
+                <p class="paper-status">Manuscript in preparation</p>
+                <p class="paper-description">An improvement in a health score does not always mean a patient feels meaningfully better. This work develops methods to estimate how much change matters to patients, and how that threshold may differ across groups.</p>
+            </article>
+            <article class="paper-entry">
+                <h2>A Fast Algorithm for Markowitz Portfolio Optimization</h2>
+                <p class="paper-status">Undergraduate research, UC Santa Barbara</p>
+                <p class="paper-description">Choosing an investment portfolio means balancing potential returns against risk. This undergraduate project developed a faster way to find that balance under a simplified model of how assets move together, with a proof that the method finds the best solution within that model.</p>
+                <a class="paper-link" href="https://drive.google.com/file/d/13o4RgKmxXZaXuFWKD2h-T8n9Eilthn-O/view">Read paper <span aria-hidden="true">↗</span></a>
+            </article>
+        </section>
     </main>
 </body>
 </html>
