@@ -4,8 +4,32 @@
 
     const location = window.location;
     const measurementId = document.currentScript?.dataset.measurementId;
-    if (location.origin !== 'https://yjgooo.github.io' ||
-        !/^G-[A-Z0-9]+$/.test(measurementId || '') ||
+    if (location.origin !== 'https://yjgooo.github.io') return;
+
+    // This preference stays in this browser and is never sent to Google.
+    const preferenceKey = 'xi-gong-analytics-disabled';
+    const preference = new URL(location.href).searchParams.get('analytics');
+    let excluded = preference === 'off';
+    let saved = true;
+    try {
+        if (preference === 'off') window.localStorage.setItem(preferenceKey, '1');
+        if (preference === 'on') window.localStorage.removeItem(preferenceKey);
+        excluded = excluded || window.localStorage.getItem(preferenceKey) === '1';
+    } catch (_) {
+        saved = false;
+    }
+    if (preference === 'off' || preference === 'on') {
+        const status = document.createElement('p');
+        status.setAttribute('role', 'status');
+        status.style.cssText = 'max-width:720px;margin:24px auto;padding:12px 16px;border:1px solid #ddd;font:16px/1.5 sans-serif;';
+        status.textContent = preference === 'off'
+            ? (saved ? 'Your visits from this browser are now excluded from analytics.'
+                : 'This visit is excluded, but your browser could not save the preference. Future visits may still be counted.')
+            : (saved ? 'The analytics opt-out for this browser has been removed. Browser privacy settings still apply.'
+                : 'Your browser could not update the analytics preference.');
+        document.body.prepend(status);
+    }
+    if (excluded || !/^G-[A-Z0-9]+$/.test(measurementId || '') ||
         window.navigator?.globalPrivacyControl === true ||
         window.navigator?.doNotTrack === '1' || window.doNotTrack === '1' ||
         window.__xiGongAnalyticsInitialized) {
