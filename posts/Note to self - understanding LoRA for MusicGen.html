@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Note to self: LoRA update for transformer block — Xi Gong</title>
     <script defer src="/analytics.js?v=20261012-optout" data-measurement-id="G-CT2K6PV3V3"></script>
-    <link href="../index.css?v=6057a410bcf8" rel="stylesheet" type="text/css">
+    <link href="../index.css?v=6b43c6a41994" rel="stylesheet" type="text/css">
     <script src="../mathjax-config.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js"></script>
 </head>
@@ -72,19 +72,20 @@ unchanged.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Query projection (W_Q)</td>
-<td>Add trainable (sB_QA_Q)</td>
+<td>Query projection <span class="math inline">\(W_Q\)</span></td>
+<td>Add trainable <span class="math inline">\(sB_QA_Q\)</span></td>
 </tr>
 <tr class="even">
-<td>Key projection (W_K)</td>
+<td>Key projection <span class="math inline">\(W_K\)</span></td>
 <td>Keep frozen</td>
 </tr>
 <tr class="odd">
-<td>Value projection (W_V)</td>
-<td>Add trainable (sB_VA_V)</td>
+<td>Value projection <span class="math inline">\(W_V\)</span></td>
+<td>Add trainable <span class="math inline">\(sB_VA_V\)</span></td>
 </tr>
 <tr class="even">
-<td>Attention output projection (W_O)</td>
+<td>Attention output projection <span
+class="math inline">\(W_O\)</span></td>
 <td>Keep frozen</td>
 </tr>
 <tr class="odd">
@@ -130,28 +131,33 @@ transformer block we previously discussed.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Query projection (W_Q)</td>
-<td>Add trainable (sB_QA_Q)</td>
+<td>Query projection <span class="math inline">\(W_Q\)</span></td>
+<td>Add trainable <span class="math inline">\(sB_QA_Q\)</span></td>
 </tr>
 <tr class="even">
-<td>Key projection (W_K)</td>
-<td>Add trainable (sB_KA_K)</td>
+<td>Key projection <span class="math inline">\(W_K\)</span></td>
+<td>Add trainable <span class="math inline">\(sB_KA_K\)</span></td>
 </tr>
 <tr class="odd">
-<td>Value projection (W_V)</td>
-<td>Add trainable (sB_VA_V)</td>
+<td>Value projection <span class="math inline">\(W_V\)</span></td>
+<td>Add trainable <span class="math inline">\(sB_VA_V\)</span></td>
 </tr>
 <tr class="even">
-<td>Attention output projection (W_O)</td>
-<td>Add trainable (sB_OA_O)</td>
+<td>Attention output projection <span
+class="math inline">\(W_O\)</span></td>
+<td>Add trainable <span class="math inline">\(sB_OA_O\)</span></td>
 </tr>
 <tr class="odd">
-<td>MLP upward projection (W_{})</td>
-<td>Add trainable (sB_{}A_{})</td>
+<td>MLP upward projection <span
+class="math inline">\(W_{\mathrm{up}}\)</span></td>
+<td>Add trainable <span
+class="math inline">\(sB_{\mathrm{up}}A_{\mathrm{up}}\)</span></td>
 </tr>
 <tr class="even">
-<td>MLP downward projection (W_{})</td>
-<td>Add trainable (sB_{}A_{})</td>
+<td>MLP downward projection <span
+class="math inline">\(W_{\mathrm{down}}\)</span></td>
+<td>Add trainable <span
+class="math inline">\(sB_{\mathrm{down}}A_{\mathrm{down}}\)</span></td>
 </tr>
 <tr class="odd">
 <td>Layer normalization parameters</td>
