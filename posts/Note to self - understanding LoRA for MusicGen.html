@@ -59,8 +59,8 @@ can attend to.</p>
 \]</span> The MLP detects learned features in that updated
 representation and produces a vector adjustment</li>
 </ul>
-<h4 id="lora-update-for-transformer-block">LoRA update for transformer
-block</h4>
+<h4 id="mainstream-lora-update-for-transformer-block">Mainstream LoRA
+update for transformer block</h4>
 <p>We update the Query and Value matrix, while keeping the Key matrix
 unchanged.</p>
 <div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
@@ -102,6 +102,63 @@ which parameters to adapt, rather than a requirement to avoid
 multiplying trainable weights. Intuitively, with frozen keys, LoRA
 changes what each token’s query looks for while keeping the keys it
 searches against fixed.</p>
+<h4 id="lora-update-for-musicgen">LoRA update for MusicGen</h4>
+<p>MusicGen has 50 frames per second, each frame consists of a 4-tuple
+consisting of integers. There exists a embedding <span
+class="math inline">\(h_{ti}\)</span> for each position <span
+class="math inline">\(i\)</span> of the 4-tuple, which is followed by a
+softmax.</p>
+<p>Recall that in DPO, we have the following term inside the negated
+sigmoid <span class="math display">\[
+\log\frac{\pi_\theta(y^+ | c)}{\pi_{\text{ref}}(y^+ | c)}) -
+\log\frac{\pi_\theta(y^- | c)}{\pi_{\text{ref}}(y^- | c)}).
+\]</span> Here, <span class="math inline">\(\theta\)</span> refers to
+the parameters – or more precisely, matrices – introduced by the LoRA
+update. The paper we discussed chose the following parameters for LoRA
+udpate, which is quite different from the standard LoRA update for
+transformer block we previously discussed.</p>
+<div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Part of the block</th>
+<th>Paper’s rank-8 LoRA setup</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Query projection (W_Q)</td>
+<td>Add trainable (sB_QA_Q)</td>
+</tr>
+<tr class="even">
+<td>Key projection (W_K)</td>
+<td>Add trainable (sB_KA_K)</td>
+</tr>
+<tr class="odd">
+<td>Value projection (W_V)</td>
+<td>Add trainable (sB_VA_V)</td>
+</tr>
+<tr class="even">
+<td>Attention output projection (W_O)</td>
+<td>Add trainable (sB_OA_O)</td>
+</tr>
+<tr class="odd">
+<td>MLP upward projection (W_{})</td>
+<td>Add trainable (sB_{}A_{})</td>
+</tr>
+<tr class="even">
+<td>MLP downward projection (W_{})</td>
+<td>Add trainable (sB_{}A_{})</td>
+</tr>
+<tr class="odd">
+<td>Layer normalization parameters</td>
+<td>Keep frozen</td>
+</tr>
+</tbody>
+</table></div>
 </article><p><a href="../blog.html">← All posts</a></p>
 </main>
 </body>
