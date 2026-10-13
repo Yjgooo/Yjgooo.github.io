@@ -59,8 +59,8 @@ b_{down}\in \mathbb{R}^d.
 \]</span> The MLP detects learned features in that updated
 representation and produces a vector adjustment</li>
 </ul>
-<h4 id="mainstream-lora-update-for-transformer-block">Mainstream LoRA
-update for transformer block</h4>
+<h4 id="mainstream-lora-update-for-the-transformer-block">Mainstream
+LoRA update for the transformer block</h4>
 <p>We update the Query and Value matrix, while keeping the Key matrix
 unchanged.</p>
 <div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
@@ -111,8 +111,8 @@ class="math inline">\(i\)</span> of the 4-tuple, which is followed by a
 softmax.</p>
 <p>Recall that in DPO, we have the following term inside the negated
 sigmoid <span class="math display">\[
-\log\frac{\pi_\theta(y^+ | c)}{\pi_{\text{ref}}(y^+ | c)}) -
-\log\frac{\pi_\theta(y^- | c)}{\pi_{\text{ref}}(y^- | c)}).
+\log(\frac{\pi_\theta(y^+ | c)}{\pi_{\text{ref}}(y^+ | c)}) -
+\log(\frac{\pi_\theta(y^- | c)}{\pi_{\text{ref}}(y^- | c)}).
 \]</span> Here, <span class="math inline">\(\theta\)</span> refers to
 the parameters – or more precisely, matrices – introduced by the LoRA
 update. The paper we discussed chose the following parameters for LoRA
