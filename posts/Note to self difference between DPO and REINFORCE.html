@@ -31,12 +31,12 @@
 \mathcal L_{DPO} = -E_{(c, y^+, y^-)\sim D^{\text{train}}}
 [\sigma(\log\frac{\pi_\theta(y^+ | c)}{\pi_{\text{ref}}(y^+ | c)}) -
 \log\frac{\pi_\theta(y^- | c)}{\pi_{\text{ref}}(y^- | c)})].
-\]</span> Here the weight updates will not change the distribution <span
-class="math inline">\(D^{train}\)</span>.</p>
-<p>At other times, we may be interested in optimizing the <span
+\]</span> The weight updates leaves the distribution <span
+class="math inline">\(D^{train}\)</span> untouched.</p>
+<p>At other times, we may be interested in optimizing <span
 class="math display">\[
 J(\theta) = E_{y\sim\pi_{\theta (\cdot \mid c)}}[R(c,y)].
-\]</span> The immediate obstacle for that the sampling distribution
+\]</span> The immediate obstacle is that sampling distribution now
 depends on <span class="math inline">\(\theta\)</span>. To address this,
 note that <span class="math display">\[
 \nabla J(\theta) = \sum_{y}R(c,y)\nabla_\theta \pi_{\theta}(y \mid c)  =
@@ -44,15 +44,17 @@ E_{y\sim \pi_\theta(\cdot \mid c)}[R(c,y)\nabla_\theta\log(\pi_\theta (y
 \mid c))],
 \]</span> where the last equality follows from the trick that <span
 class="math inline">\(\frac{\partial }{\partial \theta}f_\theta(x) =
-f_\theta(x)\frac{\partial}{\partial \theta} \log(f_\theta(x))\)</span>
-under suitable regularity conditions. The advantage brought is that we
-now can estimate <span class="math inline">\(\nabla J(\theta)\)</span>
-by sampling over <span class="math inline">\(y\sim \pi_\theta(\cdot \mid
+f_\theta(x)\frac{\partial}{\partial \theta} \log(f_\theta(x))\)</span>,
+under suitable regularity conditions. The good news is that we now can
+estimate <span class="math inline">\(\nabla J(\theta)\)</span> by
+sampling over <span class="math inline">\(y\sim \pi_\theta(\cdot \mid
 c)\)</span>, rather than emumerating over the potentially monstrous
 <span class="math inline">\(y\)</span>.</p>
-<p>One does not need to know the “log-trick” to discover this useful
-computation trick. Once we turn to the sampling strategy, the following
-inverse propensity weighting estimator is almost second nature: <span
+<p>Knowing the “log-trick” is not strictly necccesary for discovering
+this useful computation trick. Once we turn to the sampling strategy for
+estimating <span class="math inline">\(\sum_{y}R(c,y)\nabla_\theta
+\pi_{\theta}(y \mid c)\)</span>, the following inverse propensity
+weighting estimator is almost second nature: <span
 class="math display">\[
 E_{y\sim \pi_\theta(\cdot \mid c)}[R(c,y) \frac{\nabla_\theta \pi_\theta
 (y\mid c)}{\pi_\theta(y\mid c)}].
@@ -60,7 +62,8 @@ E_{y\sim \pi_\theta(\cdot \mid c)}[R(c,y) \frac{\nabla_\theta \pi_\theta
 \pi_\theta (y\mid c)}{\pi_\theta(y\mid c)} =\nabla_\theta\log(\pi_\theta
 (y \mid c))\)</span>, our expression and that appeared in REINFORCE are
 mathematically equivalent. However, the inverse propensity weighting
-apporach is less numerically stable.</p>
+apporach can be numerically unstable, for reasons that goes beyond this
+post.</p>
 <p>While here we presented a fixed context/prompt <span
 class="math inline">\(c\)</span>, in general we assume the context
 distribution of <span class="math inline">\(c\)</span> to be fixed, and
