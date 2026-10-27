@@ -565,6 +565,16 @@ IMG.displayed {
 .home-archives .diary-archive { margin: 0; padding: 22px 0; border-bottom: 1px solid #e3e3e3; }
 .home-archives summary { font-size: 18px; color: #555; }
 .home-archives li { font-size: 18px; line-height: 1.6; }
+
+/* A discreet reading list, reached only from the bottom of Blog. */
+.blog-extras { margin-top: 28px; text-align: right; font: 12px/1.5 -apple-system, BlinkMacSystemFont, sans-serif; }
+.blog-extras a { display: inline-block; padding: 6px 0 6px 12px; color: #767676; }
+.blog-extras a:hover, .blog-extras a:focus-visible { color: #282828; text-decoration: underline; }
+.saved-links h1 { margin: 0 0 28px; font-size: 25px; line-height: 1.3; }
+.saved-links-list { margin: 0; padding: 0; list-style: none; }
+.saved-links-list li { padding: 20px 0; border-top: 1px solid #e3e3e3; font-size: 21px; line-height: 1.5; }
+.saved-links-list a { overflow-wrap: anywhere; }
+.saved-link-source { margin: 8px 0 0; color: #767676; font: 13px/1.5 -apple-system, BlinkMacSystemFont, sans-serif; }
 .page-credit { margin-top: 32px; font-size: 12px; line-height: 1.5; color: #777; }
 @media (max-width: 600px) {
  .about-intro { flex-direction: column; gap: 28px; }
