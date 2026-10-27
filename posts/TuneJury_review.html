@@ -62,10 +62,12 @@ stays fixed.</td>
 </tbody>
 </table></div>
 <p>A closer look of the paper reveals that the table here can be a bit
-misleading on exactly findings the paper has established. Instead of the
-sweeping statement of “<em>systematically favors or disfavors outputs
-associated with particular generators</em>”, the paper only establishes
-the following (regarding the first row of the table above):</p>
+misleading on exactly findings the paper has established.</p>
+<h4 id="first-row">First row</h4>
+<p>Instead of the sweeping statement of “<em>systematically favors or
+disfavors outputs associated with particular generators</em>”, the paper
+only establishes the following (regarding the first row of the table
+above):</p>
 <div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
 <colgroup>
 <col style="width: 46%" />
@@ -99,16 +101,34 @@ P(\text{human pick ACE-step})\times P(\text{evaluator pick competitor}
 \]</span> How does this relate to generator-identity exploitation?
 Evaluators may have learned to favor ACE-step’s distinctive sound
 characteristics even when these are unrelated to musical quality.
-Without the other three quantities, however, this remains speculative.
-If ACE-step is highly competitive and humans rarely prefer its
-competitors, the reported 0.736% human-disagreement rate may be less
-alarming than it initially appears.</p>
-<p>Knowing the other three quantities on the right-hand side could
-provide much more insight. For example, if humans usually prefer
-ACE-step, but evaluators rarely pick competitors even when humans prefer
-them, this would be consistent with evaluators relying on ACE-step’s
-overall strength as a shortcut. It would support, though not establish,
-the hypothesis of generator-identity exploitation.</p>
+Without the other three quantities (two are independent), however, this
+remains speculative. If ACE-step is highly competitive and humans rarely
+prefer its competitors, the reported 73.6% human-disagreement rate may
+be less alarming than it initially appears.</p>
+<p><strong>Knowing the other three quantities on the right-hand side
+could provide much more insight regarding generator-identity
+exploitation.</strong> For example, if humans usually prefer ACE-step,
+but evaluators rarely pick competitors even when humans prefer them,
+this would be consistent with evaluators relying on ACE-step’s overall
+strength as a shortcut. It would support, though not establish, the
+hypothesis of generator-identity exploitation.</p>
+<h4 id="second-row">Second Row</h4>
+<p>The TuneJury paper uses a calibration set to learn generator-specific
+offsets. To do so, they model human-preference using the B-T model <span
+class="math display">\[
+\operatorname{logit}P(a\succ b)
+=r(a)-r(b)-\beta_{g(a)}+\beta_{g(b)},
+\]</span> where <span class="math inline">\(\beta_{g(a)}\)</span>
+denotes the offset coefficient for the genrator of clip <span
+class="math inline">\(a\)</span>. Those offsets are trained during the
+calibration phrase while keeping the reward model <span
+class="math inline">\(r\)</span> frozen. <strong>The use of
+generator-specific offset indicates that the authors intend to exploit
+generator identity.</strong></p>
+<p>The greatest problem I see with this approach is its inability to
+adapt to unseen generators: we do not have a way to learn the offset for
+a new generator <span class="math inline">\(g_{\mathrm{new}}\)</span>
+that is not in the calibration set.</p>
 </article><p><a href="../blog.html">← All posts</a></p>
 </main>
 </body>
