@@ -518,6 +518,9 @@ IMG.displayed {
 .writing-page .navigation a { color: #666; }
 .writing-page .navigation a[aria-current="page"] { color: #222; text-decoration-thickness: 2px; text-underline-offset: 8px; }
 .writing-page .blog-content { max-width: 720px; margin: 52px auto 80px; padding: 0 28px; }
+.writing-page.blog-layout #wrapper,
+.writing-page.blog-layout .navigation,
+.writing-page.blog-layout .blog-content { max-width: 960px; }
 .blog-heading { margin-bottom: 42px; }
 .blog-heading h1 { font-size: 46px; line-height: 1.15; margin: 0 0 12px; }
 .blog-heading p { font-size: 19px; line-height: 1.6; color: #666; }
