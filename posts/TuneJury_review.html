@@ -26,7 +26,7 @@
         </ul>
     </nav>
     <main class="blog-content">
-<a class="back-link" href="../blog.html">← All posts</a><article class="blog-post"><header class="post-heading"><p class="post-date"><time datetime="2026-10-27">October 27, 2026</time></p><h1>Note to Self: Did JuneTury cover generator-identity exploitation?</h1></header><p>GPT Astra Ultra gives me the following table, after being prompted
+<a class="back-link" href="../blog.html">← All posts</a><article class="blog-post"><header class="post-heading"><p class="post-date"><time datetime="2026-10-27">October 27, 2026</time></p><h1>Note to Self: Did JuneTury cover generator-identity exploitation?</h1></header><p>GPT 6 Ultra gives me the following table, after being prompted
 something along the lines of “pinpoint paragraphs where the paper
 TuneJury covers my question”.</p>
 <div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
@@ -61,8 +61,9 @@ stays fixed.</td>
 </tr>
 </tbody>
 </table></div>
-<p>A closer look of the paper reveals that the table here can be a bit
-misleading on exactly findings the paper has established.</p>
+<p>A closer look of the paper reveals that this table is not an accurate
+summary of what has already been established. In fact, I left the
+chat</p>
 <h4 id="first-row">First row</h4>
 <p>Instead of the sweeping statement of “<em>systematically favors or
 disfavors outputs associated with particular generators</em>”, the paper
@@ -129,6 +130,98 @@ generator identity.</strong></p>
 adapt to unseen generators: we do not have a way to learn the offset for
 a new generator <span class="math inline">\(g_{\mathrm{new}}\)</span>
 that is not in the calibration set.</p>
+<h4
+id="is-generator-identity-exploitation-not-a-concern-for-tunejury">Is
+generator-identity exploitation not a concern for TuneJury?</h4>
+<p>Here’s the application of TuneJury’s evaluator, as listed by the
+paper:</p>
+<div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 43%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Application</th>
+<th>What they do</th>
+<th>What changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Best-of-<span class="math inline">\(N\)</span>
+selection</strong></td>
+<td>Generate <span class="math inline">\(N\)</span> clips from one
+generator for the same prompt; keep the clip with the highest TuneJury
+score.</td>
+<td>The selected output; the generator stays frozen.</td>
+</tr>
+<tr class="even">
+<td><strong>Inference-time optimization</strong></td>
+<td>Adjust the initial noise latents through gradient ascent to produce
+a higher-scoring clip.</td>
+<td>The sampling input; the generator stays frozen.</td>
+</tr>
+<tr class="odd">
+<td><strong>Generator fine-tuning</strong></td>
+<td>Generate clips, retain the highest-scoring 10%, and fine-tune the
+generator on those clips.</td>
+<td>The generator’s weights.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Let’s also examine the entirety of the training data for
+TuneJury:</p>
+<div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 15%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Training source</th>
+<th>Training pairs</th>
+<th>Pairing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>AIME</strong></td>
+<td>12,480</td>
+<td>Different generators, including generated-versus-real
+comparisons.</td>
+</tr>
+<tr class="even">
+<td><strong>MusicPrefs</strong></td>
+<td>2,012</td>
+<td>Different generators. I checked the released metadata: all 2,515
+source pairs are cross-generator.</td>
+</tr>
+<tr class="odd">
+<td><strong>Music Arena</strong></td>
+<td>571</td>
+<td>Outputs from two different generators for a user’s prompt.</td>
+</tr>
+<tr class="even">
+<td><strong>SongEval</strong></td>
+<td>2,491</td>
+<td>Random song pairs with sufficiently different human ratings; their
+code imposes no generator restriction.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Note that at least 85.8% of the training pairs are cross-generator.
+If generator-identity exploitation is a real phenomena, then the
+“effective training-pairs” can be much smaller than what initially
+appeared. This matters for best-of-<span
+class="math inline">\(N\)</span> question, as requires automatic
+evaluation of samples coming from the same generator.</p>
+<h4 id="whats-next">What’s Next</h4>
+<p>What set of open-source generators to use:</p>
+<p>How we train our evaluators:</p>
+<p>How we evaluate generator-identity exploitation:</p>
 </article><p><a href="../blog.html">← All posts</a></p>
 </main>
 </body>
