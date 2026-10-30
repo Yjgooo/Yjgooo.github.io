@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Note to Self: Did JuneTury cover generator-identity exploitation? — Xi Gong</title>
+    <title>Note to Self: Does TuneJury already cover generator-identity exploitation? — Xi Gong</title>
     <script defer src="/analytics.js?v=20261012-optout" data-measurement-id="G-CT2K6PV3V3"></script>
     <link href="../index.css?v=b2c125224e8d" rel="stylesheet" type="text/css">
     <script src="../mathjax-config.js"></script>
@@ -26,9 +26,9 @@
         </ul>
     </nav>
     <main class="blog-content">
-<a class="back-link" href="../blog.html">← All posts</a><article class="blog-post"><header class="post-heading"><p class="post-date"><time datetime="2026-10-27">October 27, 2026</time></p><h1>Note to Self: Did JuneTury cover generator-identity exploitation?</h1></header><p>GPT 6 Ultra gives me the following table, after being prompted
+<a class="back-link" href="../blog.html">← All posts</a><article class="blog-post"><header class="post-heading"><p class="post-date"><time datetime="2026-10-27">October 27, 2026</time></p><h1>Note to Self: Does TuneJury already cover generator-identity exploitation?</h1></header><p>GPT 6 Ultra gives me the following table, after being prompted
 something along the lines of “pinpoint paragraphs where the paper
-TuneJury covers my question”.</p>
+TuneJury covers my question”:</p>
 <div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table>
 <colgroup>
 <col style="width: 50%" />
@@ -62,8 +62,7 @@ stays fixed.</td>
 </tbody>
 </table></div>
 <p>A closer look of the paper reveals that this table is not an accurate
-summary of what has already been established. In fact, I left the
-chat</p>
+summary of what has already been established.</p>
 <h4 id="first-row">First row</h4>
 <p>Instead of the sweeping statement of “<em>systematically favors or
 disfavors outputs associated with particular generators</em>”, the paper
@@ -219,9 +218,19 @@ appeared. This matters for best-of-<span
 class="math inline">\(N\)</span> question, as requires automatic
 evaluation of samples coming from the same generator.</p>
 <h4 id="whats-next">What’s Next</h4>
+<p>How we evaluate generator-identity exploitation: we ask LLM to
+generate 100 pairs of counterpoint composition consisting of X bars. We
+use the prompt “XXX” to ensure that one clip is good, while the other
+clip violates a composition rule for counterpoint. We consistently use
+soundfont A for the better clip and soundfont B for the other clip.
+Those soundfont should differ substantially in their sound profile, and
+a classifier using their audio embeddings should achieve high accuracy
+for generator classification.</p>
+<p>For testing, we would then flip the soundfont of the better and worse
+compositions. If the evalutor also swaps their preference, then we know
+the evaluator is exploiting the sound profile.</p>
 <p>What set of open-source generators to use:</p>
 <p>How we train our evaluators:</p>
-<p>How we evaluate generator-identity exploitation:</p>
 </article><p><a href="../blog.html">← All posts</a></p>
 </main>
 </body>
